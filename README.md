@@ -1,2 +1,1 @@
-# WaroidSingle
-Waroid Single
+# Waroid Single

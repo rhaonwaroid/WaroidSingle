@@ -14,9 +14,9 @@
 
 namespace GLOBL_DATA
 {
-	const int maxQuality = 3;
-	const int fpses[maxQuality] = { 25, 25, 25 };
-	const int bitRates[maxQuality] = { 15000000, 10000000, 5000000 };
+	const int maxQuality = 4;
+	const int fpses[maxQuality] = { 25, 25, 25, 25 };
+	const int bitRates[maxQuality] = { 15000000, 10000000, 5000000, 1000000 };
 }
 using namespace GLOBL_DATA;
 

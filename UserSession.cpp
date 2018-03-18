@@ -63,12 +63,9 @@ WAROID_USER_SESSION_COMMAND_FUNC_IMPLEMENTATION(U_R_CAMERA)
 	system("killall raspivid");
 	if (rpacket->onoff == WAROIDONOFF::ON)
 	{
-		int fps = GlobalData::GetCameraFps(rpacket->quality);
-		int bitRate = GlobalData::GetCameraBitRate(rpacket->quality);
-
 		char command[256] = { 0 };
-		sprintf(command, "raspivid -o - -t 0 -w 1280 -h 720 -fps %d -b %d -vf -n | nc %s %d &", fps, bitRate, m_remoteSockAddr.getIp(), CAMERA_USER_PORT);
-#ifdef __RPI__
+		sprintf(command, "raspivid -o - -t 0 -w 1280 -h 720 -fps %d -b %d -vf -n | nc %s %d &", rpacket->fps, rpacket->bitrate, m_remoteSockAddr.getIp(), CAMERA_USER_PORT);
+ #ifdef __RPI__
 		system(command);
 #endif
 		GRC_INFO("opened camera. system=%s", command);

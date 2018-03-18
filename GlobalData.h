@@ -34,9 +34,6 @@ public:
 		return s_battery;
 	}
 
-	static int GetCameraFps(int quality);
-	static int GetCameraBitRate(int quality);
-
 	static void UpdateOwner(const RobotData::DATA* robotData);
 	static void UpdateYaw(char hi, char low);
 	static void UpdateBattery(char hi, char low);

@@ -14,9 +14,6 @@
 
 namespace GLOBL_DATA
 {
-	const int maxQuality = 4;
-	const int fpses[maxQuality] = { 25, 25, 25, 25 };
-	const int bitRates[maxQuality] = { 15000000, 10000000, 5000000, 1000000 };
 }
 using namespace GLOBL_DATA;
 
@@ -59,20 +56,6 @@ bool GlobalData::IsRepeatWeapon()
 const char* GlobalData::GetWeaponSoundFilename()
 {
 	return s_owner->weaponSoundFilename;
-}
-
-int GlobalData::GetCameraFps(int quality)
-{
-	if (quality >= maxQuality) return fpses[0];
-
-	return fpses[quality];
-}
-
-int GlobalData::GetCameraBitRate(int quality)
-{
-	if (quality >= maxQuality) return bitRates[0];
-
-	return bitRates[quality];
 }
 
 void GlobalData::UpdateOwner(const RobotData::DATA* robotData)

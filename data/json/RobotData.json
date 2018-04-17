@@ -8,12 +8,12 @@
 			"display": "CRAB",
 			"maxhealth": 100,
 			"movepower": {
-				"FORWARD": 200,
-				"BACKWARD": 200,
-				"LEFT_FORWARD": 200,
-				"RIGHT_FORWARD": 200,
-				"LEFT_TURN": 140,
-				"RIGHT_TURN": 140
+				"FORWARD": 150,
+				"BACKWARD": 150,
+				"LEFT_FORWARD": 150,
+				"RIGHT_FORWARD": 150,
+				"LEFT_TURN": 150,
+				"RIGHT_TURN": 150
 			},
 			"weapon": "GATLING",
             "attackrange": 100,
@@ -31,12 +31,12 @@
 			"display": "TAURUS",
 			"maxhealth": 100,
 			"movepower": {
-				"FORWARD": 200,
-				"BACKWARD": 200,
-				"LEFT_FORWARD": 200,
-				"RIGHT_FORWARD": 200,
-				"LEFT_TURN": 140,
-				"RIGHT_TURN": 140
+				"FORWARD": 150,
+				"BACKWARD": 150,
+				"LEFT_FORWARD": 150,
+				"RIGHT_FORWARD": 150,
+				"LEFT_TURN": 150,
+				"RIGHT_TURN": 150
 			},
 			"weapon": "GATLING",
             "attackrange": 100,
@@ -54,14 +54,14 @@
 			"display": "TURTLE",
 			"maxhealth": 100,
 			"movepower": {
-				"FORWARD": 100,
-				"BACKWARD": 100,
-				"LEFT": 100,
-				"RIGHT": 100,
-				"LEFT_FORWARD": 100,
-				"RIGHT_FORWARD": 100,
-				"LEFT_TURN": 70,
-				"RIGHT_TURN": 70
+				"FORWARD": 150,
+				"BACKWARD": 150,
+				"LEFT": 150,
+				"RIGHT": 150,
+				"LEFT_FORWARD": 150,
+				"RIGHT_FORWARD": 150,
+				"LEFT_TURN": 150,
+				"RIGHT_TURN": 150
 			},
 			"weapon": "CANNON",
             "attackrange": 150,
@@ -79,14 +79,14 @@
 			"display": "TOAD",
 			"maxhealth": 100,
 			"movepower": {
-				"FORWARD": 100,
-				"BACKWARD": 100,
-				"LEFT": 100,
-				"RIGHT": 100,
-				"LEFT_FORWARD": 100,
-				"RIGHT_FORWARD": 100,
-				"LEFT_TURN": 70,
-				"RIGHT_TURN": 70
+				"FORWARD": 150,
+				"BACKWARD": 150,
+				"LEFT": 150,
+				"RIGHT": 150,
+				"LEFT_FORWARD": 150,
+				"RIGHT_FORWARD": 150,
+				"LEFT_TURN": 150,
+				"RIGHT_TURN": 150
 			},
 			"weapon": "CANNON",
             "attackrange": 150,

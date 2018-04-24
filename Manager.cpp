@@ -36,7 +36,6 @@ bool Manager::start(const char* robotTypeName)
 
 	const RobotData::DATA* data = s_robotData.find(robotTypeName);
 	GRC_CHECK_RETFALSE(data);
-	//GRC_CHECK_RETFALSE(GRCSoundWorker::add(m_robotData->attackedsoundfilename, false, 1));
 	GRCSoundWorker::playTts("I'm %s.", *data->name);
 
 	GRC_CHECK_RETFALSE(s_controlBoardOpener.open(CONTROL_BOARD_DEVICE, CONTROL_BOARD_BAUD));

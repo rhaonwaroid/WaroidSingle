@@ -61,6 +61,7 @@ const char* GlobalData::GetWeaponSoundFilename()
 void GlobalData::UpdateOwner(const RobotData::DATA* robotData)
 {
 	s_owner = robotData;
+	GRCSoundWorker::add(GetWeaponSoundFilename(), IsRepeatWeapon(), 1);
 }
 
 void GlobalData::UpdateYaw(char hi, char low)

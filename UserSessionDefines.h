@@ -42,9 +42,6 @@ namespace WAROIDUSERROBOT
 		U_R_FIRE,
 
 		R_U_INFO,
-
-		//--- temp ---
-		U_R_CAMERA_2,
 	};
 }
 
@@ -128,15 +125,6 @@ namespace WAROIDUSERROBOT
 		float yaw = 0.0f;
 		int battery = 0;
 	WAROID_USER_ROBOT_PACKET_STRUCT_END;
-
-	WAROID_USER_ROBOT_PACKET_STRUCT_START (U_R_CAMERA_2)
-			WAROIDONOFF onoff = WAROIDONOFF::OFF;
-			int fps = 0;
-			int bitrate = 0;
-			int contrast = 0;
-			int brightness = 0;
-	WAROID_USER_ROBOT_PACKET_STRUCT_END;
-
 }
 #pragma pack()
 

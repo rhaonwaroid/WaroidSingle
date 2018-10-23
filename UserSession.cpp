@@ -129,34 +129,6 @@ WAROID_USER_SESSION_COMMAND_FUNC_IMPLEMENTATION(U_R_FIRE)
 	GRC_INFO("[%s]fire. on=%d", getObjName(), rpacket->onoff);
 }
 
-WAROID_USER_SESSION_COMMAND_FUNC_IMPLEMENTATION(U_R_CAMERA_2)
-{
-	auto eclose = [this](const char* reason)
-	{
-		close(reason);
-	};
-
-	GRC_CHECK_FUNC_RETURN(GlobalData::Login(), eclose("not login."));
-
-	system("killall nc");
-	system("killall raspivid");
-	if (rpacket->onoff == WAROIDONOFF::ON)
-	{
-		char command[256] = { 0 };
-		sprintf(command, "raspivid -o - -t 0 -w 1280 -h 720 -fps %d -b %d -co %d -br %d -vf -n | nc %s %d &", rpacket->fps, rpacket->bitrate, rpacket->contrast, rpacket->brightness, m_remoteSockAddr.getIp(), CAMERA_USER_PORT);
- #ifdef __RPI__
-		system(command);
-#endif
-		GRC_INFO("opened camera. system=%s", command);
-	}
-	else
-	{
-		GRC_INFO("closed camera");
-	}
-
-	GRCSoundWorker::playTts("%s camera from 2", rpacket->onoff == WAROIDONOFF::ON ? "open" : "close");
-}
-
 UserSession::UserSession(size_t maxPacketSize)
 		: GRCAcceptSession(maxPacketSize)
 {
@@ -221,7 +193,6 @@ void UserSession::onPacket(const char* packet, int size)
 		WAROID_USER_SESSION_COMMAND_CASE(U_R_CAMERA, urh)
 		WAROID_USER_SESSION_COMMAND_CASE_LOG(3, U_R_MOVE, urh)
 		WAROID_USER_SESSION_COMMAND_CASE_LOG(3, U_R_FIRE, urh)
-		WAROID_USER_SESSION_COMMAND_CASE(U_R_CAMERA_2, urh)
 		default:
 			GRC_ERR("invalid packet. cmd=WAROIDUSERROBOT::%d", urh->GetCommand());
 			break;

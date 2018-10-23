@@ -93,7 +93,7 @@ WAROID_USER_SESSION_COMMAND_FUNC_IMPLEMENTATION(U_R_MOVE)
 	//send serial
 	Manager::GetControlBoardOpener().getFirstOpenedSession()->sendMove(rpacket->direction, rpacket->speed);
 
-	GRC_DEV("[%s]move. dir=%d speed=%d", getObjName(), rpacket->direction, rpacket->speed);
+	GRC_INFO("[%s]move. dir=%d speed=%d", getObjName(), rpacket->direction, rpacket->speed);
 }
 
 WAROID_USER_SESSION_COMMAND_FUNC_IMPLEMENTATION(U_R_FIRE)
@@ -126,7 +126,7 @@ WAROID_USER_SESSION_COMMAND_FUNC_IMPLEMENTATION(U_R_FIRE)
 		}
 	}
 
-	GRC_DEV("[%s]fire. on=%d", getObjName(), rpacket->onoff);
+	GRC_INFO("[%s]fire. on=%d", getObjName(), rpacket->onoff);
 }
 
 WAROID_USER_SESSION_COMMAND_FUNC_IMPLEMENTATION(U_R_CAMERA_2)

@@ -38,11 +38,11 @@ unsigned char GlobalData::GetMovePower(WAROIDDIRECTION direction, WAROIDSPEED sp
 	switch (speed)
 	{
 		case WAROIDSPEED::SLOW:
-			return GRCMath::Clamp<unsigned char>(s_owner->movepowers[(int)direction] / 2, MIN_MOVE_POWER, MAX_MOVE_POWER);
+			return static_cast<unsigned char>(GRCMath::Clamp<int>(s_owner->movepowers[(int)direction] / 2, MIN_MOVE_POWER, MAX_MOVE_POWER));
 		case WAROIDSPEED::DEFAULT:
-			return GRCMath::Clamp<unsigned char>(s_owner->movepowers[(int)direction], MIN_MOVE_POWER, MAX_MOVE_POWER);
+			return static_cast<unsigned char>(GRCMath::Clamp<int>(s_owner->movepowers[(int)direction], MIN_MOVE_POWER, MAX_MOVE_POWER));
 		case WAROIDSPEED::FAST:
-			return GRCMath::Clamp<unsigned char>(s_owner->movepowers[(int)direction] * 2, MIN_MOVE_POWER, MAX_MOVE_POWER);
+			return static_cast<unsigned char>(GRCMath::Clamp<int>(s_owner->movepowers[(int)direction] * 2, MIN_MOVE_POWER, MAX_MOVE_POWER));
 		default:
 			return 0;
 	}
@@ -61,6 +61,7 @@ const char* GlobalData::GetWeaponSoundFilename()
 void GlobalData::UpdateOwner(const RobotData::DATA* robotData)
 {
 	s_owner = robotData;
+	GRCSoundWorker::add(GetWeaponSoundFilename(), IsRepeatWeapon(), 1);
 }
 
 void GlobalData::UpdateYaw(char hi, char low)

@@ -96,7 +96,7 @@ void GRCSoundWorker::startPlay(GRCCSTR filename)
 	GRC_CHECK_RETURN(filename);
 
 	auto iter = waveDatas.find(filename);
-	GRC_CHECK_RETURN(iter != waveDatas.end());
+	GRC_CHECKV_RETURN(iter != waveDatas.end(), "not exist file. file=%s", filename);
 
 	GRCWave** oldWave = &currentWave;
 	GRCWave* newWave = iter->second;

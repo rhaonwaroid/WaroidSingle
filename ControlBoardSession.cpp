@@ -55,9 +55,10 @@ void ControlBoardSession::sendMove(WAROIDDIRECTION direction, WAROIDSPEED speed)
 
 		m_oldDirection = direction;
 		m_oldSpeed = speed;
+
+		GRC_INFO("[%s]move dir=%d speed=%d power=%d", getObjName(), direction, speed, GlobalData::GetMovePower(direction, speed));
 	}
 
-	GRC_DEV("[%s]move dir=%d speed=%d power=%d", getObjName(), direction, speed, GlobalData::GetMovePower(direction, speed));
 }
 
 void ControlBoardSession::sendFire(bool on)
@@ -66,6 +67,7 @@ void ControlBoardSession::sendFire(bool on)
 	packet.cmd = WAROIDCONTROLBOARD::COMMAND::RP_AR_FIRE;
 	packet.hi = on ? 1 : 0;
 	sendPacket(packet);
+	GRC_INFO("[%s]fire on=%d", getObjName(), on ? 1 : 0);
 }
 
 void ControlBoardSession::sendLed(bool on)
@@ -158,7 +160,7 @@ void ControlBoardSession::onPacket(const char* packet, int size)
 				blinkLed(0.5, 0.5, 1);
 			}
 
-			GRC_INFO("[%s]received. cmd=WAROIDCONTROLBOARD::AR_RP_HEARTBEAT_ACK hi=%d low=%d", getObjName(), cbp->hi, cbp->low);
+			GRC_DEV("[%s]received. cmd=WAROIDCONTROLBOARD::AR_RP_HEARTBEAT_ACK hi=%d low=%d", getObjName(), cbp->hi, cbp->low);
 			break;
 		case WAROIDCONTROLBOARD::COMMAND::AR_RP_YAW:
 			GlobalData::UpdateYaw(cbp->hi, cbp->low);
@@ -227,7 +229,7 @@ void ControlBoardSession::onRequestHeartbeat()
 		}
 
 		sendPacket(packet);
-		GRC_INFO("[%s]sent. cmd=WAROIDCONTROLBOARD::AR_RP_HEARTBEAT hi=%d low=%d", getObjName(), packet.hi, packet.low);
+		GRC_DEV("[%s]sent. cmd=WAROIDCONTROLBOARD::AR_RP_HEARTBEAT hi=%d low=%d", getObjName(), packet.hi, packet.low);
 
 		GRCCoreUtil::sleep(5.0);
 	}

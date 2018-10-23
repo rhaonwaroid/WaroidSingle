@@ -154,7 +154,7 @@ WAROID_USER_SESSION_COMMAND_FUNC_IMPLEMENTATION(U_R_CAMERA_2)
 		GRC_INFO("closed camera");
 	}
 
-	GRCSoundWorker::playTts("%s camera", rpacket->onoff == WAROIDONOFF::ON ? "open" : "close");
+	GRCSoundWorker::playTts("%s camera from 2", rpacket->onoff == WAROIDONOFF::ON ? "open" : "close");
 }
 
 UserSession::UserSession(size_t maxPacketSize)
